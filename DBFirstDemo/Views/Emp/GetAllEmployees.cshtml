@@ -1,0 +1,34 @@
+﻿@using DBFirstDemo.ViewModel
+@model IList<ListedbutNoLocationViewModel>
+@{
+    ViewBag.Title = "Employee List - All";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Profile</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ID</th>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Profile</td>
+                <td><a href="javascript:void(0);" onclick="window.location.href='@Url.Action("AddUpdateEmployee","Emp", new { EID = item.ID })'"> Edit </a>| <a href="javascript:void(0);" onclick="window.location.href='@Url.Action("DeleteEmployee","Emp", new { EID = item.ID })'"> Delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<script>
+
+</script>
+
